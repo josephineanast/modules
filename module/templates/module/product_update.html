@@ -1,0 +1,26 @@
+{% extends "modular_engine/base.html" %} {% block title %}Update Product{% endblock %} 
+{% block content %}
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-header">
+      <h2>Update Product</h2>
+    </div>
+    <div class="card-body">
+      <form method="post">
+        {% csrf_token %} {{ form.as_p }}
+        <div class="d-flex justify-content-end">
+          <button type="submit" class="btn btn-primary">
+            <i class="fas fa-save"></i> Save Changes
+          </button>
+          <a
+            href="{% url 'module:product_list' %}"
+            class="btn btn-secondary ms-2"
+          >
+            <i class="fas fa-times"></i> Cancel
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
